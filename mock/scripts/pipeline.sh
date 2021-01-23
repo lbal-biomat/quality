@@ -12,10 +12,10 @@ HELEN_MODEL=/media3/lucia/zymo_mock_community/helen-models/HELEN_r103_guppy_micr
 REF_DIR_ILL=/media3/lucia/zymo_mock_community/illumina_ref_asm/bac/
 METAQUAST_OUTDIR=r10
 ## flags, cambiar a false lo que no quiera correr
-flyeflag=false
-raconflag=false
-medakaflag=false
-marginflag=false
+flyeflag=true
+raconflag=true
+medakaflag=true
+marginflag=true
 helenflag=true
 metaquastflag=true
 buscoflag=false
@@ -73,9 +73,6 @@ fi
 
 ##evaluacion con metaquast
 if [ $metaquastflag == true ]; then
-	if [ $buscoflag == true ]; then
-		busco=-b
-	fi
-    metaquast.py ${busco} --no-icarus --fragmented --min-identity 90 --min-contig 5000 \
+    metaquast.py --no-icarus --fragmented --min-identity 90 --min-contig 5000 \
         --threads ${NPROC} -r ${REF_DIR_ILL} -o metaquast-${METAQUAST_OUTDIR} *.fasta
 fi
