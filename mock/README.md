@@ -122,7 +122,7 @@ La idea es usar las referencias de illumina para evaluar los missmatches antes y
 
 Hice un script en python que toma como entrada un fastq y devuelve el fastq con sólo 4 valores de calidad:
 
-- si qscore <= 7 -> newqscore = 6
+- si qscore <= 7 -> newqscore = 5
 - si 8 <= qscore <= 13 -> newqscore = 12
 - si 14 <= qscore <= 19 -> newqscore = 18
 - si qscore >= 20 -> newqscore = 24
