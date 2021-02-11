@@ -120,13 +120,26 @@ La idea es usar las referencias de illumina para evaluar los missmatches antes y
 
 **Cuantizar los datos de calidad**
 
-Hice un script en python que toma como entrada un fastq y devuelve el fastq con sólo 4 valores de calidad:
+Hice un script en python que toma como entrada un fastq y devuelve el fastq con menos valores de calidad. Por ahora hice dos binnings distintos, uno con 4 bins:
 
 - si qscore <= 7 -> newqscore = 5
 - si 8 <= qscore <= 13 -> newqscore = 12
 - si 14 <= qscore <= 19 -> newqscore = 18
 - si qscore >= 20 -> newqscore = 24
 
-Es una primera idea de cómo definir los bins, no hay nada que respalde esta elección, pero me parece claro que los bins de illumina no funcionan para los datos de nanopore porque la calidad media de illumina es mucho mayor.
+y otro con 8 bins:
 
-Hice el binning de los valores de calidad de los reads de la secuencicion con el poro r10, y a esos datos le apliqué el mismo pipeline que a los datos originales.
+- si qscore <= 6 -> newqscore = 5
+- si 7 <= qsc <= 11 -> newqscore = 10
+- si 12 <= qsc <= 16 -> newqscore = 15
+- si 17 <= qsc <= 21 -> newqscore = 20
+- si 22 <= qsc <= 26 -> newqscore = 25
+- si 27 <= qsc <= 31 -> newqscore = 30
+- si 32 <= qsc <= 36 -> newqscore = 35
+- qsc >= 37 -> newqscore = 40
+
+Es una primera idea de cómo definir los bins, no hay nada que respalde esta elección, pero me parece claro que los bins de illumina no son una buena guía para los datos de nanopore porque la calidad media de illumina es mucho mayor.
+
+Después de hacer el binning de los valores de calidad de los reads le apliqué el mismo pipeline que a los datos originales y plotee los mismaches por cada 100kb:
+
+![quality/quality_dotchart.png]
