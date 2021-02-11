@@ -113,7 +113,7 @@ fastaUtils.pl -u asm-flye-TODOS.fa | grep --no-group-separator -A 1 -w -f lista_
 
 **Evaluación**
 
-Para la evaluación estoy usando metaQUAST. TODO:  probar [fastmer.py](https://github.com/jts/assembly_accuracy) (per-genome accuracy).
+Para la evaluación estoy usando metaQUAST. (Para mas adelante: probar [fastmer.py](https://github.com/jts/assembly_accuracy)).
 La idea es usar las referencias de illumina para evaluar los missmatches antes y después de cada etapa polishing de los 8 contigs mas largos, tal como hicieron en el paper. Los missassemblies los evaluaron usando las referencias de pacbio, pero eso no es relevante para este trabajo.
 
 <br/>
