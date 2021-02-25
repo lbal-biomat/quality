@@ -161,8 +161,8 @@ Nuevos binnings:
 
 Plot:
 
-![](https://github.com/lbal-biomat/quality/blob/main/mock/results/dorchart3.png)
+![](https://github.com/lbal-biomat/quality/blob/main/mock/results/dotchart3.png)
 
 Zoom en el eje y (sin los raw):
 
-![](https://github.com/lbal-biomat/quality/blob/main/mock/results/dorchart2.png)
+![](https://github.com/lbal-biomat/quality/blob/main/mock/results/dotchart2.png)
