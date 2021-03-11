@@ -127,7 +127,7 @@ Hice un script en python que toma como entrada un fastq y devuelve el fastq con 
 - si 14 <= qscore <= 19 -> newqscore = 18
 - si qscore >= 20 -> newqscore = 24
 
-y otro con 8 bins:
+8 bins:
 
 - si qsc <= 6 -> newqscore = 5
 - si 7 <= qsc <= 11 -> newqscore = 10
@@ -138,31 +138,30 @@ y otro con 8 bins:
 - si 32 <= qsc <= 36 -> newqscore = 35
 - qsc >= 37 -> newqscore = 40
 
-Es una primera idea de cómo definir los bins, no hay nada que respalde esta elección, pero me parece claro que los bins de illumina no son una buena guía para los datos de nanopore porque la calidad media de illumina es mucho mayor.
 
-Después de hacer el binning de los valores de calidad de los reads le apliqué el mismo pipeline que a los datos originales y plotee los mismaches por cada 100kb:
-
-![](https://github.com/lbal-biomat/quality/blob/main/mock/results/quality-dorchart.png)
-
-
-Nuevos binnings:
-
--2 bins:
+2 bins:
 
 + si qsc <= 7 -> newqscore = 5
 + si qsc > 7 -> newqscore = 15
 
-- 2 bins_v2:
+
+2 bins_v2:
 
 + si qsc <=10 -> newqscore = 10
 + si qsc > 10 -> newqscoew = 30 
 
-- Calidad constante: 20
 
-Plot:
+Calidad constante: 10, 20, 30 y 40
+
+Plots:
+
+![](https://github.com/lbal-biomat/quality/blob/main/mock/results/quality-dorchart.png)
+
+Zoom en el eje y (sin los raw):
+
 
 ![](https://github.com/lbal-biomat/quality/blob/main/mock/results/dotchart3.png)
 
-Zoom en el eje y (sin los raw):
+Mismo zoom en el eje y (solo los raw)
 
 ![](https://github.com/lbal-biomat/quality/blob/main/mock/results/dotchart2.png)
