@@ -36,8 +36,8 @@ lines = []
 for line in fh:
     lines.append(line.rstrip())
     if len(lines) == 4:
-        record = process(lines)
-        qual = record['quality']
+        read = process(lines)
+        qual = read['quality']
         newqual=""
         for base in qual:
           qsc=ord(base)-33
@@ -49,7 +49,7 @@ for line in fh:
             newqual = newqual + chr(18+33)
           elif qsc >= 20:
             newqual = newqual + chr(24+33)
-        record['quality'] = newqual
-        for key in record.keys():
-            print(record[key])
+        read['quality'] = newqual
+        for key in read.keys():
+            print(read[key])
         lines = []
